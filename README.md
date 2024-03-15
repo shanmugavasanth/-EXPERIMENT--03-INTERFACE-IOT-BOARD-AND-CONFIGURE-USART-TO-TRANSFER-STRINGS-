@@ -43,19 +43,15 @@ configure in the usart 2 as asynchronous mode and set the baud rate as 115200 as
 
 ## STM 32 CUBE PROGRAM :
 ```
-
 #include "main.h"
 #include "stdio.h"
 #if defined(__ICCARM__) || defined(__ARMCC_VERSION)
 #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
 #elif defined(__GNUC__)
-
 #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
 #endif
 
-
 UART_HandleTypeDef huart2;
-
 
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
@@ -66,9 +62,7 @@ int main(void)
   
   HAL_Init();
 
-
   SystemClock_Config();
-
 
   MX_GPIO_Init();
   MX_USART2_UART_Init();
@@ -80,6 +74,7 @@ int main(void)
 	 HAL_Delay(500);
   }
 }
+
 PUTCHAR_PROTOTYPE
 {
 	HAL_UART_Transmit(&huart2,(uint8_t *)&ch,1,0xFFFF);
